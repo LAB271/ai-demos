@@ -228,7 +228,7 @@ def main():
     print()
     
     # Save results
-    output_file = "demos/001_sql_logs/anomaly_results.csv"
+    output_file = "anomaly_results.csv"
     df.to_csv(output_file, index=False)
     print(f"💾 Results saved to: {output_file}")
     print()
