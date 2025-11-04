@@ -6,8 +6,8 @@ from faker import Faker
 fake = Faker()
 
 # Configuration
-total_logs = 20000            # Total number of log entries
-security_ratio = 0.02         # Proportion of security anomalies (0.0 - 1.0)
+total_logs = 50000            # Total number of log entries
+security_ratio = 0.0015         # Proportion of security anomalies (0.0 - 1.0)
 log_file = "sql_server_log.txt"
 
 # Generate dynamic elements
