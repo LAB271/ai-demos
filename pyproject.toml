@@ -1,0 +1,13 @@
+[project]
+name = "ai-demos"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "faker==37.12.0",
+]
+
+[tool.uv]
+# Default to exact version bounds when adding dependencies
+add-bounds = "exact"
