@@ -5,8 +5,8 @@
 check: ## Validate primary development dependencies
 	@uv --version > /dev/null && echo "✅ uv available" || (echo "❌ Please install uv as package manager: https://docs.astral.sh/uv/" && exit 1)
 
-test: ## Run tests
-	@uv run -m pytest
+test: ## Run tests and clean up generated files
+	@trap '$(MAKE) remove' EXIT; uv run -m pytest
 
 lint: ## Run linting and formatting checks
 	@echo "🔍 Running ruff linting..."
@@ -32,6 +32,12 @@ env: ## setup the development environment
 # 	@uv sync --group dev
 # 	@.env.sh || (echo "❌ Failed to create .env file. Please ensure 1Password CLI is installed and configured." && exit 1)
 	@echo "✅ Development environment is set up. Activate it with: source .venv/bin/activate"
+
+remove: ## Remove the generated files
+	@find . -name "*.json" -type f -delete
+	@find . -name "*.csv" -type f -delete
+	@find . -name "*.log" -type f -delete
+	@echo "✅ Development environment removed."
 
 clean: ## Clean up environment
 	@rm -rf .venv

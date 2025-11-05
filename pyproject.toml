@@ -1,7 +1,7 @@
 [project]
 name = "ai-demos"
 version = "0.1.0"
-description = "Add your description here"
+description = "A package of synthetic data generation and analysis GenAI demos."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
@@ -12,6 +12,15 @@ dependencies = [
     "scipy==1.16.3",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "pytest"
+]
+
 [tool.uv]
 # Default to exact version bounds when adding dependencies
 add-bounds = "exact"
+
+[tool.ruff]
+line-length = 120
