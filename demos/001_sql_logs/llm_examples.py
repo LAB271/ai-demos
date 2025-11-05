@@ -1,8 +1,12 @@
+#!/usr/bin/env python3
 """
 Example Usage: How to Feed Anomaly Detection Results to an LLM
 
 This script demonstrates different approaches for sending anomaly detection results
 to an LLM for analysis and explanation.
+
+Copyright (c) 2025 Lab271
+SPDX-License-Identifier: Apache-2.0
 """
 
 import json

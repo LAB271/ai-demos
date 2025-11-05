@@ -1,8 +1,12 @@
+#!/usr/bin/env python3
 """
 LLM Processor for SQL Server Log Anomaly Detection Results
 
 This script demonstrates how to process anomaly detection results from anomaly_results.csv
 and prepare them for feeding into an LLM for explanation and analysis.
+
+Copyright (c) 2025 Lab271
+SPDX-License-Identifier: Apache-2.0
 """
 
 import pandas as pd

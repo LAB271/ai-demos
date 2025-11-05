@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Enhanced SQL Server Log Generator
 
@@ -30,6 +31,9 @@ FIXES IMPLEMENTED:
 - Added proper database naming distribution (80% standard, 20% unusual)
 - Reduced severe case ratio from 0.0005 to 0.0003 for more realistic anomaly rates
 - Enhanced template system for more varied log patterns
+
+Copyright (c) 2025 Lab271
+SPDX-License-Identifier: Apache-2.0
 """
 
 import random
@@ -41,7 +45,7 @@ fake = Faker()
 
 # Configuration
 total_logs = 50000            # Total number of log entries
-security_ratio = 0.0015       # Proportion of security anomalies (0.0 - 1.0)
+security_ratio = 0.005       # Proportion of security anomalies (0.0 - 1.0)
 severe_cases = True           # Generate configuration and system issues
 severe_ratio = 0.0003         # Reduced proportion of severe configuration issues (was 0.0005)
 log_file = "sql_server_log.txt"
@@ -76,9 +80,17 @@ def random_standard_db():
     return random.choice(prefixes) + random.choice(suffixes)
 
 def random_query():
-    tables = ["CustomerData", "Orders", "Payments", "AuditLogs", "sys.syslogins"]
-    actions = ["SELECT * FROM", "DROP TABLE", "ALTER TABLE", "UPDATE", "INSERT INTO"]
-    return f"{random.choice(actions)} {random.choice(tables)}"
+    # More diverse and clearly suspicious queries
+    suspicious_tables = ["CustomerData", "Orders", "Payments", "AuditLogs", "sys.syslogins", "sys.sysadmin", "UserCredentials", "FinancialData"]
+    suspicious_actions = [
+        "DROP TABLE", "DROP DATABASE", "ALTER TABLE", "DELETE FROM", 
+        "TRUNCATE TABLE", "xp_cmdshell", "sp_configure", "BULK INSERT"
+    ]
+    normal_actions = ["SELECT * FROM", "UPDATE", "INSERT INTO"]
+    
+    # Mix suspicious and normal for variety
+    all_actions = suspicious_actions + normal_actions
+    return f"{random.choice(all_actions)} {random.choice(suspicious_tables)}"
 
 def generate_timestamp_with_clustering():
     """Generate timestamps with clustering for severe cases (early morning hours)"""
@@ -99,30 +111,57 @@ def generate_timestamp_with_clustering():
 # Anomaly categories with placeholders
 anomaly_templates = {
     "Authentication": [
-        "Login failed for user '{user}'. Reason: Password did not match.",
-        "Login attempt from unknown IP: {ip}",
-        "Login succeeded outside normal hours for user '{user}'."
+        "Login failed for user '{user}'. Reason: Password did not match that provided.",
+        "Multiple failed login attempts detected from IP: {ip} for user '{user}'.",
+        "Login succeeded outside normal business hours (2 AM) for user '{user}'.",
+        "Suspicious login pattern: {user} logged in from 5 different locations in 10 minutes.",
+        "Account '{user}' locked due to too many failed login attempts."
     ],
     "Privilege Escalation": [
-        "ALTER SERVER ROLE sysadmin ADD MEMBER '{user}'",
-        "New login '{user}' created with elevated privileges."
+        "ALTER SERVER ROLE sysadmin ADD MEMBER '{user}' - CRITICAL: Admin privileges granted.",
+        "New login '{user}' created with elevated sysadmin privileges by '{user}'.",
+        "User '{user}' attempted to modify server role permissions without authorization.",
+        "GRANT ALL PRIVILEGES executed by '{user}' on sensitive database '{db}'.",
+        "User '{user}' added to db_owner role in production database '{db}'.",
+        "sp_addsrvrolemember executed: adding '{user}' to serveradmin role."
     ],
     "Suspicious Queries": [
-        "{query} executed by user '{user}'.",
-        "Large SELECT query on sensitive table '{table}'.",
-        "DROP TABLE detected on '{table}'."
+        "DROP TABLE {table} executed by user '{user}' - DATA LOSS RISK.",
+        "DROP DATABASE '{db}' command attempted by '{user}' - BLOCKED.",
+        "Large bulk data export: SELECT * FROM {table} returned 1M+ rows to '{user}'.",
+        "xp_cmdshell executed by '{user}': suspected command injection attempt.",
+        "TRUNCATE TABLE {table} executed by '{user}' - all data removed.",
+        "Suspicious query: UNION SELECT password FROM sys.syslogins by '{user}'.",
+        "sp_configure 'xp_cmdshell' enabled by '{user}' - security risk.",
+        "OPENROWSET bulk operation detected: potential data exfiltration by '{user}'."
     ],
     "Audit Manipulation": [
-        "ALTER SERVER AUDIT state changed to OFF by '{user}'.",
-        "Audit log file manually deleted by user '{user}'."
+        "ALTER SERVER AUDIT state changed to OFF by '{user}' - audit trail disabled.",
+        "Audit log file manually deleted by user '{user}' - compliance violation.",
+        "Database audit specification disabled for '{db}' by '{user}'.",
+        "Error log cleared by '{user}' - potential evidence tampering.",
+        "Audit policy 'Failed Login Tracking' disabled by '{user}'."
     ],
     "Malware Indicators": [
-        "xp_cmdshell executed: 'powershell -EncodedCommand ...' by '{user}'.",
-        "Unusual linked server connection to '{server}'."
+        "xp_cmdshell executed: 'powershell -EncodedCommand <base64>' by '{user}'.",
+        "Unusual linked server connection established to '{server}' by '{user}'.",
+        "Suspicious process spawned: cmd.exe via SQL injection by '{user}'.",
+        "File system access via OPENROWSET detected: potential data staging by '{user}'.",
+        "Registry modification attempted through SQL Server by '{user}'."
     ],
     "Performance Anomalies": [
-        "CPU usage spiked to 95% during query execution by '{user}'.",
-        "Blocking session detected: Session ID {session_id}."
+        "CPU usage spiked to 98% during suspicious query execution by '{user}'.",
+        "Blocking session detected: Session ID {session_id} holding locks for 30+ minutes.",
+        "Memory consumption exceeded 90% threshold during query by '{user}'.",
+        "Deadlock victim chosen: suspicious transaction pattern by '{user}'.",
+        "Long-running query detected: 45 minutes execution time by '{user}'."
+    ],
+    "Data Exfiltration": [
+        "Large data export detected: {user} downloaded 500MB from '{table}'.",
+        "Unusual backup operation: '{user}' created backup of '{db}' to external location.",
+        "BCP (Bulk Copy Program) export initiated by '{user}' - monitoring required.",
+        "SSIS package executed by '{user}': data transfer to unknown destination.",
+        "SELECT INTO operation by '{user}': copying sensitive data to temp tables."
     ]
 }
 
@@ -176,7 +215,7 @@ def generate_timestamp():
     random_offset = datetime.timedelta(seconds=random.randint(0, 86400))
     return (now - random_offset).strftime("%Y-%m-%d %H:%M:%S")
 
-def fill_template(template):
+def fill_template(template: str):
     return template.format(
         user=random_user(),
         ip=random_ip(),
@@ -192,7 +231,7 @@ def fill_template(template):
         space_mb=random.randint(50, 500)
     )
 
-def generate_log_entry(entry_type="normal"):
+def generate_log_entry(entry_type: str = "normal") -> str:
     """
     Generate log entry based on type:
     - normal: Regular operations
@@ -249,11 +288,14 @@ def generate_log_entry(entry_type="normal"):
     
     return f"{timestamp} | {severity} | {message}"
 
-def generate_logs():
+def generate_logs() -> list[str]:
     security_logs_count = int(total_logs * security_ratio)
     severe_logs_count = int(total_logs * severe_ratio) if severe_cases else 0
     normal_logs_count = total_logs - security_logs_count - severe_logs_count
 
+    print(f"Generating {security_logs_count} security anomalies out of {total_logs} total logs")
+    
+    # Ensure we get a good distribution of security anomaly types
     logs = []
     
     # Generate security anomalies
