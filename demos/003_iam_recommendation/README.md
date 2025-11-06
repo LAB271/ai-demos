@@ -20,7 +20,21 @@ This demo showcases how to analyze Identity and Access Management (IAM) access r
 - `validate_access_requests.py` — Rule-based validation engine for toxic combinations and policy enforcement.
 - `anomaly_detection.py` — ML-based anomaly detection using Isolation Forest algorithm.
 
+## Architecture
+
+```
+┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐
+│  generate_       │    │  validate_       │    │  anomaly_        │
+│  access_request  │───▶│  access_requests │───▶│  detection.py    │
+│  .py             │    │  .py             │    │                  │
+│                  │    │                  │    │                  │
+│ Generate data    │    │ Rule validation  │    │ ML Detection     │
+└──────────────────┘    └──────────────────┘    └──────────────────┘
+```
+
 ## Example Workflow
+
+
 
 1. **Generate Dataset:**
    ```bash

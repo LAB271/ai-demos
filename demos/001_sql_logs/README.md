@@ -22,7 +22,20 @@ This demo showcases how to detect security anomalies in SQL Server logs using ma
 - `llm_examples.py` — Five different approaches for LLM integration.
 - `RESULTS.md` — Detailed Phase 1 analysis and performance metrics.
 
+## Architecture
+
+```
+┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐
+│  logfile_        │    │  anomaly_        │    │  llm_            │
+│  generator.py    │───▶│  detector.py     │───▶│  processor.py    │
+│                  │    │                  │    │                  │
+│ Generate logs    │    │ ML Detection     │    │ LLM Analysis     │
+└──────────────────┘    └──────────────────┘    └──────────────────┘
+```
+
 ## Example Workflow
+
+
 
 1. **Generate Log Data:**
    ```bash

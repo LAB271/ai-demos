@@ -21,7 +21,20 @@ This demo showcases how to analyze Azure cloud cost and usage data using Python,
 - `analyze_azure_costs.py` — Main analysis script; computes cost breakdowns and trends.
 - `generate_llm_summary.py` — Uses an LLM to create human-readable summaries and recommendations.
 
+## Architecture
+
+```
+┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐
+│  azure_data.py   │    │  analyze_azure_  │    │  generate_llm_   │
+│  simple_data.py  │───▶│  costs.py        │───▶│  summary.py      │
+│                  │    │                  │    │                  │
+│ Generate data    │    │ Cost Analysis    │    │ LLM Summary      │
+└──────────────────┘    └──────────────────┘    └──────────────────┘
+```
+
 ## Example Workflow
+
+
 
 1. **Prepare Data:** Place your Azure cost/usage CSV or JSON file in the project directory.
 2. **Run Analysis:**
