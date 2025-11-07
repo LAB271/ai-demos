@@ -24,12 +24,12 @@ This demo showcases how to analyze Azure cloud cost and usage data using Python,
 ## Architecture
 
 ```
-┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐
-│  azure_data.py   │    │  analyze_azure_  │    │  generate_llm_   │
-│  simple_data.py  │───▶│  costs.py        │───▶│  summary.py      │
-│                  │    │                  │    │                  │
-│ Generate data    │    │ Cost Analysis    │    │ LLM Summary      │
-└──────────────────┘    └──────────────────┘    └──────────────────┘
+┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐
+│  azure_data.py   │    │  analyze_azure_  │    │  generate_llm_   │    │  LLM             │
+│  simple_data.py  │───▶│  costs.py        │───▶│  summary.py      │───▶│  Interpretation  │
+│                  │    │                  │    │                  │    │                  │
+│ Generate data    │    │ Cost Analysis    │    │ LLM Summary      │    │ Human Insights   │
+└──────────────────┘    └──────────────────┘    └──────────────────┘    └──────────────────┘
 ```
 
 ## Example Workflow

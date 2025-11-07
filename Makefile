@@ -8,6 +8,9 @@ check: ## Validate primary development dependencies
 test: ## Run tests and clean up generated files
 	@trap '$(MAKE) remove' EXIT; uv run -m pytest
 
+push: ## Push changes to remote repository
+	@git push origin `git rev-parse --abbrev-ref HEAD` -f
+
 lint: ## Run linting and formatting checks
 	@echo "🔍 Running ruff linting..."
 	@uv run ruff check .
@@ -33,13 +36,13 @@ env: ## setup the development environment
 # 	@.env.sh || (echo "❌ Failed to create .env file. Please ensure 1Password CLI is installed and configured." && exit 1)
 	@echo "✅ Development environment is set up. Activate it with: source .venv/bin/activate"
 
-remove: ## Remove the generated files
+clean: ## Remove the generated files
 	@find . -name "*.json" -type f -delete
 	@find . -name "*.csv" -type f -delete
 	@find . -name "*.log" -type f -delete
-	@echo "✅ Development environment removed."
+	@echo "✅ Generated files removed."
 
-clean: ## Clean up environment
+end: ## Clean up environment
 	@rm -rf .venv
 	@rm -f .env	
 	@find . -name *.pyc -delete

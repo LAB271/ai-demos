@@ -25,12 +25,12 @@ This demo showcases how to detect security anomalies in SQL Server logs using ma
 ## Architecture
 
 ```
-┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐
-│  logfile_        │    │  anomaly_        │    │  llm_            │
-│  generator.py    │───▶│  detector.py     │───▶│  processor.py    │
-│                  │    │                  │    │                  │
-│ Generate logs    │    │ ML Detection     │    │ LLM Analysis     │
-└──────────────────┘    └──────────────────┘    └──────────────────┘
+┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐
+│  logfile_        │    │  anomaly_        │    │  llm_            │    │  LLM             │
+│  generator.py    │───▶│  detector.py     │───▶│  processor.py    │───▶│  Interpretation  │
+│                  │    │                  │    │                  │    │                  │
+│ Generate logs    │    │ ML Detection     │    │ LLM Analysis     │    │ Human Insights   │
+└──────────────────┘    └──────────────────┘    └──────────────────┘    └──────────────────┘
 ```
 
 ## Example Workflow

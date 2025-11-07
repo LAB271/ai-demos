@@ -23,17 +23,15 @@ This demo showcases how to analyze Identity and Access Management (IAM) access r
 ## Architecture
 
 ```
-┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐
-│  generate_       │    │  validate_       │    │  anomaly_        │
-│  access_request  │───▶│  access_requests │───▶│  detection.py    │
-│  .py             │    │  .py             │    │                  │
-│                  │    │                  │    │                  │
-│ Generate data    │    │ Rule validation  │    │ ML Detection     │
-└──────────────────┘    └──────────────────┘    └──────────────────┘
+┌─────────────────────┐    ┌─────────────────────┐    ┌──────────────────┐    ┌──────────────────┐
+│  generate_          │    │  validate_          │    │  anomaly_        │    │  LLM             │
+│  access_request.py  │───▶│  access_requests.py │───▶│  detection.py    │───▶│  Interpretation  │
+│                     │    │                     │    │                  │    │                  │
+│ Generate data       │    │ Rule validation     │    │ ML Detection     │    │ Human Insights   │
+└─────────────────────┘    └─────────────────────┘    └──────────────────┘    └──────────────────┘
 ```
 
 ## Example Workflow
-
 
 
 1. **Generate Dataset:**
