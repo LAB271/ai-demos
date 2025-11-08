@@ -18,6 +18,7 @@ The demos focus on:
 | **001** | SQL Server Log Anomaly Detection & LLM | Cybersecurity | [View README](demos/001_sql_logs/README.md) |
 | **002** | Azure Cost Analysis & LLM | Cloud Operations | [View README](demos/002_azure/README.md) |
 | **003** | IAM Access Request Analysis & Validation | Identity Management | [View README](demos/003_iam_recommendation/README.md) |
+| **004** | SQL Server Query Store DMV Synthetic Data Generator | Database Performance | [View README](demos/004_sql_dmv/README.md) |
 
 ## Getting Started
 

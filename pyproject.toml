@@ -8,14 +8,17 @@ dependencies = [
     "faker==37.12.0",
     "numpy==2.3.4",
     "pandas==2.3.3",
+    "ruff==0.14.4",
     "scikit-learn==1.7.2",
     "scipy==1.16.3",
     "seaborn==0.13.2",
+    "setuptools==80.9.0",
 ]
 
 [project.optional-dependencies]
 dev = [
     "ruff",
+    "mutatest",
     "pytest",
     "jupyter",
     "matplotlib",
@@ -29,3 +32,24 @@ add-bounds = "exact"
 
 [tool.ruff]
 line-length = 120
+target-version = "py313"
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+]
+ignore = [
+    "E501", # line too long, handled by black/ruff formatter
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"

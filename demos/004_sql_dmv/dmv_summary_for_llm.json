@@ -1,0 +1,1108 @@
+{
+  "metadata": {
+    "generated_at": "2025-11-08T09:29:15.248512",
+    "total_unique_queries": 50,
+    "total_query_instances": 79,
+    "total_executions": 1707025,
+    "total_runtime_stat_samples": 3710,
+    "total_wait_stat_samples": 9256,
+    "total_error_log_entries": 254
+  },
+  "overall_statistics": {
+    "total_duration_ms": 93940660613.48415,
+    "total_cpu_ms": 9384800774.0,
+    "avg_duration_per_execution_ms": 55031.80129962019,
+    "avg_cpu_per_execution_ms": 5497.752390269621
+  },
+  "query_patterns": {
+    "SELECT": 21,
+    "INSERT": 8,
+    "UPDATE": 1,
+    "DELETE": 4,
+    "WITH (CTE)": 3,
+    "bulk insert": 2,
+    "SELECT INTO": 6,
+    "Window Functions": 2,
+    "JOINs": 2,
+    "Problematic (LIKE %)": 0,
+    "Functions on columns": 1,
+    "Parameterized": 16
+  },
+  "top_queries_by_cpu": [
+    {
+      "plan_id": "11",
+      "query_snippet": "INSERT INTO Plays (Name, Value, CreatedDate) VALUES (@p0, @p1, GETDATE())",
+      "executions": 90,
+      "total_duration_ms": 1343276661.9,
+      "avg_duration_ms": 14925296.24,
+      "total_cpu_ms": 139574168.0,
+      "avg_cpu_ms": 1550824.09,
+      "total_logical_reads": 6897677.0,
+      "max_duration_ms": 36931146.06
+    },
+    {
+      "plan_id": "10",
+      "query_snippet": "(@Param000004 varchar(100), @Param000005 varchar(100), @Param000006 varchar(100), @Param000007 varchar(100), @Param000008 varchar(100), @Param000009 varchar(100))INSERT [dbo].[Mouths]([Server], [Datab",
+      "executions": 80,
+      "total_duration_ms": 1328760245.36,
+      "avg_duration_ms": 16609503.07,
+      "total_cpu_ms": 134317855.0,
+      "avg_cpu_ms": 1678973.19,
+      "total_logical_reads": 6537786.0,
+      "max_duration_ms": 27109839.14
+    },
+    {
+      "plan_id": "102",
+      "query_snippet": "Plan 102",
+      "executions": 265,
+      "total_duration_ms": 1308277246.95,
+      "avg_duration_ms": 4936895.27,
+      "total_cpu_ms": 129374031.0,
+      "avg_cpu_ms": 488203.89,
+      "total_logical_reads": 6420077.0,
+      "max_duration_ms": 12189556.92
+    },
+    {
+      "plan_id": "83",
+      "query_snippet": "Plan 83",
+      "executions": 97,
+      "total_duration_ms": 1392251542.74,
+      "avg_duration_ms": 14353108.69,
+      "total_cpu_ms": 127999082.0,
+      "avg_cpu_ms": 1319578.16,
+      "total_logical_reads": 6201897.0,
+      "max_duration_ms": 30783783.23
+    },
+    {
+      "plan_id": "108",
+      "query_snippet": "Plan 108",
+      "executions": 24183,
+      "total_duration_ms": 1208997478.27,
+      "avg_duration_ms": 49993.69,
+      "total_cpu_ms": 120676382.0,
+      "avg_cpu_ms": 4990.13,
+      "total_logical_reads": 6013147.0,
+      "max_duration_ms": 240313.07
+    },
+    {
+      "plan_id": "1",
+      "query_snippet": "WITH cte_purposes AS ( SELECT site, face FROM Brothers UNION SELECT site, face FROM Agos ) SELECT srv.site, COUNT(*) as total FROM cte_purposes srv GROUP BY srv.site ORDER BY total DESC",
+      "executions": 23733,
+      "total_duration_ms": 1181208806.36,
+      "avg_duration_ms": 49770.73,
+      "total_cpu_ms": 118390010.0,
+      "avg_cpu_ms": 4988.41,
+      "total_logical_reads": 5911765.0,
+      "max_duration_ms": 319534.82
+    },
+    {
+      "plan_id": "54",
+      "query_snippet": "Plan 54",
+      "executions": 23294,
+      "total_duration_ms": 1171852000.28,
+      "avg_duration_ms": 50307.03,
+      "total_cpu_ms": 117259160.0,
+      "avg_cpu_ms": 5033.88,
+      "total_logical_reads": 5848047.0,
+      "max_duration_ms": 203862.53
+    },
+    {
+      "plan_id": "64",
+      "query_snippet": "Plan 64",
+      "executions": 23215,
+      "total_duration_ms": 1162455909.27,
+      "avg_duration_ms": 50073.48,
+      "total_cpu_ms": 115978358.0,
+      "avg_cpu_ms": 4995.84,
+      "total_logical_reads": 5799698.0,
+      "max_duration_ms": 207630.36
+    },
+    {
+      "plan_id": "7",
+      "query_snippet": "SELECT query_server, usage, query_disk INTO #begin FROM @offers WHERE Status = 'Active'",
+      "executions": 23180,
+      "total_duration_ms": 1157870114.65,
+      "avg_duration_ms": 49951.26,
+      "total_cpu_ms": 115845405.0,
+      "avg_cpu_ms": 4997.64,
+      "total_logical_reads": 5785639.0,
+      "max_duration_ms": 254534.33
+    },
+    {
+      "plan_id": "81",
+      "query_snippet": "Plan 81",
+      "executions": 23102,
+      "total_duration_ms": 1159400994.9,
+      "avg_duration_ms": 50186.17,
+      "total_cpu_ms": 115545480.0,
+      "avg_cpu_ms": 5001.54,
+      "total_logical_reads": 5760128.0,
+      "max_duration_ms": 215880.78
+    },
+    {
+      "plan_id": "34",
+      "query_snippet": "INSERT INTO Pms (Name, Value, CreatedDate) VALUES (@p0, @p1, GETDATE())",
+      "executions": 22956,
+      "total_duration_ms": 1150925602.36,
+      "avg_duration_ms": 50136.16,
+      "total_cpu_ms": 115332985.0,
+      "avg_cpu_ms": 5024.09,
+      "total_logical_reads": 5734270.0,
+      "max_duration_ms": 222490.75
+    },
+    {
+      "plan_id": "37",
+      "query_snippet": "DELETE FROM dbo.ShowTemp WHERE CreatedDate < DATEADD(m, -3, GETDATE())",
+      "executions": 22842,
+      "total_duration_ms": 1140010620.54,
+      "avg_duration_ms": 49908.53,
+      "total_cpu_ms": 114176694.0,
+      "avg_cpu_ms": 4998.54,
+      "total_logical_reads": 5722428.0,
+      "max_duration_ms": 235870.69
+    },
+    {
+      "plan_id": "111",
+      "query_snippet": "Plan 111",
+      "executions": 22876,
+      "total_duration_ms": 1140389022.67,
+      "avg_duration_ms": 49850.89,
+      "total_cpu_ms": 114028892.0,
+      "avg_cpu_ms": 4984.65,
+      "total_logical_reads": 5683661.0,
+      "max_duration_ms": 205514.05
+    },
+    {
+      "plan_id": "74",
+      "query_snippet": "Plan 74",
+      "executions": 22869,
+      "total_duration_ms": 1140383712.9,
+      "avg_duration_ms": 49865.92,
+      "total_cpu_ms": 113903376.0,
+      "avg_cpu_ms": 4980.69,
+      "total_logical_reads": 5676423.0,
+      "max_duration_ms": 209105.42
+    },
+    {
+      "plan_id": "73",
+      "query_snippet": "Plan 73",
+      "executions": 22426,
+      "total_duration_ms": 1121910476.5,
+      "avg_duration_ms": 50027.22,
+      "total_cpu_ms": 111918744.0,
+      "avg_cpu_ms": 4990.58,
+      "total_logical_reads": 5586881.0,
+      "max_duration_ms": 207824.02
+    },
+    {
+      "plan_id": "25",
+      "query_snippet": "SELECT * FROM Saves WHERE Id = 982738",
+      "executions": 22073,
+      "total_duration_ms": 1111176928.79,
+      "avg_duration_ms": 50341.0,
+      "total_cpu_ms": 110918769.0,
+      "avg_cpu_ms": 5025.09,
+      "total_logical_reads": 5525167.0,
+      "max_duration_ms": 206305.77
+    },
+    {
+      "plan_id": "77",
+      "query_snippet": "Plan 77",
+      "executions": 22231,
+      "total_duration_ms": 1106025484.87,
+      "avg_duration_ms": 49751.49,
+      "total_cpu_ms": 110656814.0,
+      "avg_cpu_ms": 4977.59,
+      "total_logical_reads": 5526792.0,
+      "max_duration_ms": 197947.82
+    },
+    {
+      "plan_id": "109",
+      "query_snippet": "Plan 109",
+      "executions": 21926,
+      "total_duration_ms": 1096415667.68,
+      "avg_duration_ms": 50005.28,
+      "total_cpu_ms": 109492749.0,
+      "avg_cpu_ms": 4993.74,
+      "total_logical_reads": 5484124.0,
+      "max_duration_ms": 196181.79
+    },
+    {
+      "plan_id": "12",
+      "query_snippet": "SELECT * FROM Agreements ORDER BY CreatedDate DESC",
+      "executions": 21647,
+      "total_duration_ms": 1083266249.08,
+      "avg_duration_ms": 50042.33,
+      "total_cpu_ms": 108830706.0,
+      "avg_cpu_ms": 5027.52,
+      "total_logical_reads": 5425612.0,
+      "max_duration_ms": 195953.31
+    },
+    {
+      "plan_id": "63",
+      "query_snippet": "Plan 63",
+      "executions": 21657,
+      "total_duration_ms": 1077969348.68,
+      "avg_duration_ms": 49774.64,
+      "total_cpu_ms": 108217175.0,
+      "avg_cpu_ms": 4996.87,
+      "total_logical_reads": 5391520.0,
+      "max_duration_ms": 220626.59
+    }
+  ],
+  "top_queries_by_duration": [
+    {
+      "plan_id": "83",
+      "query_snippet": "Plan 83",
+      "executions": 97,
+      "total_duration_ms": 1392251542.74,
+      "avg_duration_ms": 14353108.69,
+      "total_cpu_ms": 127999082.0,
+      "avg_cpu_ms": 1319578.16,
+      "total_logical_reads": 6201897.0,
+      "max_duration_ms": 30783783.23
+    },
+    {
+      "plan_id": "11",
+      "query_snippet": "INSERT INTO Plays (Name, Value, CreatedDate) VALUES (@p0, @p1, GETDATE())",
+      "executions": 90,
+      "total_duration_ms": 1343276661.9,
+      "avg_duration_ms": 14925296.24,
+      "total_cpu_ms": 139574168.0,
+      "avg_cpu_ms": 1550824.09,
+      "total_logical_reads": 6897677.0,
+      "max_duration_ms": 36931146.06
+    },
+    {
+      "plan_id": "10",
+      "query_snippet": "(@Param000004 varchar(100), @Param000005 varchar(100), @Param000006 varchar(100), @Param000007 varchar(100), @Param000008 varchar(100), @Param000009 varchar(100))INSERT [dbo].[Mouths]([Server], [Datab",
+      "executions": 80,
+      "total_duration_ms": 1328760245.36,
+      "avg_duration_ms": 16609503.07,
+      "total_cpu_ms": 134317855.0,
+      "avg_cpu_ms": 1678973.19,
+      "total_logical_reads": 6537786.0,
+      "max_duration_ms": 27109839.14
+    },
+    {
+      "plan_id": "102",
+      "query_snippet": "Plan 102",
+      "executions": 265,
+      "total_duration_ms": 1308277246.95,
+      "avg_duration_ms": 4936895.27,
+      "total_cpu_ms": 129374031.0,
+      "avg_cpu_ms": 488203.89,
+      "total_logical_reads": 6420077.0,
+      "max_duration_ms": 12189556.92
+    },
+    {
+      "plan_id": "108",
+      "query_snippet": "Plan 108",
+      "executions": 24183,
+      "total_duration_ms": 1208997478.27,
+      "avg_duration_ms": 49993.69,
+      "total_cpu_ms": 120676382.0,
+      "avg_cpu_ms": 4990.13,
+      "total_logical_reads": 6013147.0,
+      "max_duration_ms": 240313.07
+    },
+    {
+      "plan_id": "1",
+      "query_snippet": "WITH cte_purposes AS ( SELECT site, face FROM Brothers UNION SELECT site, face FROM Agos ) SELECT srv.site, COUNT(*) as total FROM cte_purposes srv GROUP BY srv.site ORDER BY total DESC",
+      "executions": 23733,
+      "total_duration_ms": 1181208806.36,
+      "avg_duration_ms": 49770.73,
+      "total_cpu_ms": 118390010.0,
+      "avg_cpu_ms": 4988.41,
+      "total_logical_reads": 5911765.0,
+      "max_duration_ms": 319534.82
+    },
+    {
+      "plan_id": "54",
+      "query_snippet": "Plan 54",
+      "executions": 23294,
+      "total_duration_ms": 1171852000.28,
+      "avg_duration_ms": 50307.03,
+      "total_cpu_ms": 117259160.0,
+      "avg_cpu_ms": 5033.88,
+      "total_logical_reads": 5848047.0,
+      "max_duration_ms": 203862.53
+    },
+    {
+      "plan_id": "64",
+      "query_snippet": "Plan 64",
+      "executions": 23215,
+      "total_duration_ms": 1162455909.27,
+      "avg_duration_ms": 50073.48,
+      "total_cpu_ms": 115978358.0,
+      "avg_cpu_ms": 4995.84,
+      "total_logical_reads": 5799698.0,
+      "max_duration_ms": 207630.36
+    },
+    {
+      "plan_id": "81",
+      "query_snippet": "Plan 81",
+      "executions": 23102,
+      "total_duration_ms": 1159400994.9,
+      "avg_duration_ms": 50186.17,
+      "total_cpu_ms": 115545480.0,
+      "avg_cpu_ms": 5001.54,
+      "total_logical_reads": 5760128.0,
+      "max_duration_ms": 215880.78
+    },
+    {
+      "plan_id": "7",
+      "query_snippet": "SELECT query_server, usage, query_disk INTO #begin FROM @offers WHERE Status = 'Active'",
+      "executions": 23180,
+      "total_duration_ms": 1157870114.65,
+      "avg_duration_ms": 49951.26,
+      "total_cpu_ms": 115845405.0,
+      "avg_cpu_ms": 4997.64,
+      "total_logical_reads": 5785639.0,
+      "max_duration_ms": 254534.33
+    },
+    {
+      "plan_id": "34",
+      "query_snippet": "INSERT INTO Pms (Name, Value, CreatedDate) VALUES (@p0, @p1, GETDATE())",
+      "executions": 22956,
+      "total_duration_ms": 1150925602.36,
+      "avg_duration_ms": 50136.16,
+      "total_cpu_ms": 115332985.0,
+      "avg_cpu_ms": 5024.09,
+      "total_logical_reads": 5734270.0,
+      "max_duration_ms": 222490.75
+    },
+    {
+      "plan_id": "111",
+      "query_snippet": "Plan 111",
+      "executions": 22876,
+      "total_duration_ms": 1140389022.67,
+      "avg_duration_ms": 49850.89,
+      "total_cpu_ms": 114028892.0,
+      "avg_cpu_ms": 4984.65,
+      "total_logical_reads": 5683661.0,
+      "max_duration_ms": 205514.05
+    },
+    {
+      "plan_id": "74",
+      "query_snippet": "Plan 74",
+      "executions": 22869,
+      "total_duration_ms": 1140383712.9,
+      "avg_duration_ms": 49865.92,
+      "total_cpu_ms": 113903376.0,
+      "avg_cpu_ms": 4980.69,
+      "total_logical_reads": 5676423.0,
+      "max_duration_ms": 209105.42
+    },
+    {
+      "plan_id": "37",
+      "query_snippet": "DELETE FROM dbo.ShowTemp WHERE CreatedDate < DATEADD(m, -3, GETDATE())",
+      "executions": 22842,
+      "total_duration_ms": 1140010620.54,
+      "avg_duration_ms": 49908.53,
+      "total_cpu_ms": 114176694.0,
+      "avg_cpu_ms": 4998.54,
+      "total_logical_reads": 5722428.0,
+      "max_duration_ms": 235870.69
+    },
+    {
+      "plan_id": "73",
+      "query_snippet": "Plan 73",
+      "executions": 22426,
+      "total_duration_ms": 1121910476.5,
+      "avg_duration_ms": 50027.22,
+      "total_cpu_ms": 111918744.0,
+      "avg_cpu_ms": 4990.58,
+      "total_logical_reads": 5586881.0,
+      "max_duration_ms": 207824.02
+    },
+    {
+      "plan_id": "25",
+      "query_snippet": "SELECT * FROM Saves WHERE Id = 982738",
+      "executions": 22073,
+      "total_duration_ms": 1111176928.79,
+      "avg_duration_ms": 50341.0,
+      "total_cpu_ms": 110918769.0,
+      "avg_cpu_ms": 5025.09,
+      "total_logical_reads": 5525167.0,
+      "max_duration_ms": 206305.77
+    },
+    {
+      "plan_id": "77",
+      "query_snippet": "Plan 77",
+      "executions": 22231,
+      "total_duration_ms": 1106025484.87,
+      "avg_duration_ms": 49751.49,
+      "total_cpu_ms": 110656814.0,
+      "avg_cpu_ms": 4977.59,
+      "total_logical_reads": 5526792.0,
+      "max_duration_ms": 197947.82
+    },
+    {
+      "plan_id": "109",
+      "query_snippet": "Plan 109",
+      "executions": 21926,
+      "total_duration_ms": 1096415667.68,
+      "avg_duration_ms": 50005.28,
+      "total_cpu_ms": 109492749.0,
+      "avg_cpu_ms": 4993.74,
+      "total_logical_reads": 5484124.0,
+      "max_duration_ms": 196181.79
+    },
+    {
+      "plan_id": "12",
+      "query_snippet": "SELECT * FROM Agreements ORDER BY CreatedDate DESC",
+      "executions": 21647,
+      "total_duration_ms": 1083266249.08,
+      "avg_duration_ms": 50042.33,
+      "total_cpu_ms": 108830706.0,
+      "avg_cpu_ms": 5027.52,
+      "total_logical_reads": 5425612.0,
+      "max_duration_ms": 195953.31
+    },
+    {
+      "plan_id": "63",
+      "query_snippet": "Plan 63",
+      "executions": 21657,
+      "total_duration_ms": 1077969348.68,
+      "avg_duration_ms": 49774.64,
+      "total_cpu_ms": 108217175.0,
+      "avg_cpu_ms": 4996.87,
+      "total_logical_reads": 5391520.0,
+      "max_duration_ms": 220626.59
+    }
+  ],
+  "top_queries_by_reads": [
+    {
+      "plan_id": "11",
+      "query_snippet": "INSERT INTO Plays (Name, Value, CreatedDate) VALUES (@p0, @p1, GETDATE())",
+      "executions": 90,
+      "total_duration_ms": 1343276661.9,
+      "avg_duration_ms": 14925296.24,
+      "total_cpu_ms": 139574168.0,
+      "avg_cpu_ms": 1550824.09,
+      "total_logical_reads": 6897677.0,
+      "max_duration_ms": 36931146.06
+    },
+    {
+      "plan_id": "10",
+      "query_snippet": "(@Param000004 varchar(100), @Param000005 varchar(100), @Param000006 varchar(100), @Param000007 varchar(100), @Param000008 varchar(100), @Param000009 varchar(100))INSERT [dbo].[Mouths]([Server], [Datab",
+      "executions": 80,
+      "total_duration_ms": 1328760245.36,
+      "avg_duration_ms": 16609503.07,
+      "total_cpu_ms": 134317855.0,
+      "avg_cpu_ms": 1678973.19,
+      "total_logical_reads": 6537786.0,
+      "max_duration_ms": 27109839.14
+    },
+    {
+      "plan_id": "102",
+      "query_snippet": "Plan 102",
+      "executions": 265,
+      "total_duration_ms": 1308277246.95,
+      "avg_duration_ms": 4936895.27,
+      "total_cpu_ms": 129374031.0,
+      "avg_cpu_ms": 488203.89,
+      "total_logical_reads": 6420077.0,
+      "max_duration_ms": 12189556.92
+    },
+    {
+      "plan_id": "83",
+      "query_snippet": "Plan 83",
+      "executions": 97,
+      "total_duration_ms": 1392251542.74,
+      "avg_duration_ms": 14353108.69,
+      "total_cpu_ms": 127999082.0,
+      "avg_cpu_ms": 1319578.16,
+      "total_logical_reads": 6201897.0,
+      "max_duration_ms": 30783783.23
+    },
+    {
+      "plan_id": "108",
+      "query_snippet": "Plan 108",
+      "executions": 24183,
+      "total_duration_ms": 1208997478.27,
+      "avg_duration_ms": 49993.69,
+      "total_cpu_ms": 120676382.0,
+      "avg_cpu_ms": 4990.13,
+      "total_logical_reads": 6013147.0,
+      "max_duration_ms": 240313.07
+    },
+    {
+      "plan_id": "1",
+      "query_snippet": "WITH cte_purposes AS ( SELECT site, face FROM Brothers UNION SELECT site, face FROM Agos ) SELECT srv.site, COUNT(*) as total FROM cte_purposes srv GROUP BY srv.site ORDER BY total DESC",
+      "executions": 23733,
+      "total_duration_ms": 1181208806.36,
+      "avg_duration_ms": 49770.73,
+      "total_cpu_ms": 118390010.0,
+      "avg_cpu_ms": 4988.41,
+      "total_logical_reads": 5911765.0,
+      "max_duration_ms": 319534.82
+    },
+    {
+      "plan_id": "54",
+      "query_snippet": "Plan 54",
+      "executions": 23294,
+      "total_duration_ms": 1171852000.28,
+      "avg_duration_ms": 50307.03,
+      "total_cpu_ms": 117259160.0,
+      "avg_cpu_ms": 5033.88,
+      "total_logical_reads": 5848047.0,
+      "max_duration_ms": 203862.53
+    },
+    {
+      "plan_id": "64",
+      "query_snippet": "Plan 64",
+      "executions": 23215,
+      "total_duration_ms": 1162455909.27,
+      "avg_duration_ms": 50073.48,
+      "total_cpu_ms": 115978358.0,
+      "avg_cpu_ms": 4995.84,
+      "total_logical_reads": 5799698.0,
+      "max_duration_ms": 207630.36
+    },
+    {
+      "plan_id": "7",
+      "query_snippet": "SELECT query_server, usage, query_disk INTO #begin FROM @offers WHERE Status = 'Active'",
+      "executions": 23180,
+      "total_duration_ms": 1157870114.65,
+      "avg_duration_ms": 49951.26,
+      "total_cpu_ms": 115845405.0,
+      "avg_cpu_ms": 4997.64,
+      "total_logical_reads": 5785639.0,
+      "max_duration_ms": 254534.33
+    },
+    {
+      "plan_id": "81",
+      "query_snippet": "Plan 81",
+      "executions": 23102,
+      "total_duration_ms": 1159400994.9,
+      "avg_duration_ms": 50186.17,
+      "total_cpu_ms": 115545480.0,
+      "avg_cpu_ms": 5001.54,
+      "total_logical_reads": 5760128.0,
+      "max_duration_ms": 215880.78
+    },
+    {
+      "plan_id": "34",
+      "query_snippet": "INSERT INTO Pms (Name, Value, CreatedDate) VALUES (@p0, @p1, GETDATE())",
+      "executions": 22956,
+      "total_duration_ms": 1150925602.36,
+      "avg_duration_ms": 50136.16,
+      "total_cpu_ms": 115332985.0,
+      "avg_cpu_ms": 5024.09,
+      "total_logical_reads": 5734270.0,
+      "max_duration_ms": 222490.75
+    },
+    {
+      "plan_id": "37",
+      "query_snippet": "DELETE FROM dbo.ShowTemp WHERE CreatedDate < DATEADD(m, -3, GETDATE())",
+      "executions": 22842,
+      "total_duration_ms": 1140010620.54,
+      "avg_duration_ms": 49908.53,
+      "total_cpu_ms": 114176694.0,
+      "avg_cpu_ms": 4998.54,
+      "total_logical_reads": 5722428.0,
+      "max_duration_ms": 235870.69
+    },
+    {
+      "plan_id": "111",
+      "query_snippet": "Plan 111",
+      "executions": 22876,
+      "total_duration_ms": 1140389022.67,
+      "avg_duration_ms": 49850.89,
+      "total_cpu_ms": 114028892.0,
+      "avg_cpu_ms": 4984.65,
+      "total_logical_reads": 5683661.0,
+      "max_duration_ms": 205514.05
+    },
+    {
+      "plan_id": "74",
+      "query_snippet": "Plan 74",
+      "executions": 22869,
+      "total_duration_ms": 1140383712.9,
+      "avg_duration_ms": 49865.92,
+      "total_cpu_ms": 113903376.0,
+      "avg_cpu_ms": 4980.69,
+      "total_logical_reads": 5676423.0,
+      "max_duration_ms": 209105.42
+    },
+    {
+      "plan_id": "73",
+      "query_snippet": "Plan 73",
+      "executions": 22426,
+      "total_duration_ms": 1121910476.5,
+      "avg_duration_ms": 50027.22,
+      "total_cpu_ms": 111918744.0,
+      "avg_cpu_ms": 4990.58,
+      "total_logical_reads": 5586881.0,
+      "max_duration_ms": 207824.02
+    },
+    {
+      "plan_id": "77",
+      "query_snippet": "Plan 77",
+      "executions": 22231,
+      "total_duration_ms": 1106025484.87,
+      "avg_duration_ms": 49751.49,
+      "total_cpu_ms": 110656814.0,
+      "avg_cpu_ms": 4977.59,
+      "total_logical_reads": 5526792.0,
+      "max_duration_ms": 197947.82
+    },
+    {
+      "plan_id": "25",
+      "query_snippet": "SELECT * FROM Saves WHERE Id = 982738",
+      "executions": 22073,
+      "total_duration_ms": 1111176928.79,
+      "avg_duration_ms": 50341.0,
+      "total_cpu_ms": 110918769.0,
+      "avg_cpu_ms": 5025.09,
+      "total_logical_reads": 5525167.0,
+      "max_duration_ms": 206305.77
+    },
+    {
+      "plan_id": "109",
+      "query_snippet": "Plan 109",
+      "executions": 21926,
+      "total_duration_ms": 1096415667.68,
+      "avg_duration_ms": 50005.28,
+      "total_cpu_ms": 109492749.0,
+      "avg_cpu_ms": 4993.74,
+      "total_logical_reads": 5484124.0,
+      "max_duration_ms": 196181.79
+    },
+    {
+      "plan_id": "12",
+      "query_snippet": "SELECT * FROM Agreements ORDER BY CreatedDate DESC",
+      "executions": 21647,
+      "total_duration_ms": 1083266249.08,
+      "avg_duration_ms": 50042.33,
+      "total_cpu_ms": 108830706.0,
+      "avg_cpu_ms": 5027.52,
+      "total_logical_reads": 5425612.0,
+      "max_duration_ms": 195953.31
+    },
+    {
+      "plan_id": "63",
+      "query_snippet": "Plan 63",
+      "executions": 21657,
+      "total_duration_ms": 1077969348.68,
+      "avg_duration_ms": 49774.64,
+      "total_cpu_ms": 108217175.0,
+      "avg_cpu_ms": 4996.87,
+      "total_logical_reads": 5391520.0,
+      "max_duration_ms": 220626.59
+    }
+  ],
+  "top_queries_by_executions": [
+    {
+      "plan_id": "108",
+      "query_snippet": "Plan 108",
+      "executions": 24183,
+      "total_duration_ms": 1208997478.27,
+      "avg_duration_ms": 49993.69,
+      "total_cpu_ms": 120676382.0,
+      "avg_cpu_ms": 4990.13,
+      "total_logical_reads": 6013147.0,
+      "max_duration_ms": 240313.07
+    },
+    {
+      "plan_id": "1",
+      "query_snippet": "WITH cte_purposes AS ( SELECT site, face FROM Brothers UNION SELECT site, face FROM Agos ) SELECT srv.site, COUNT(*) as total FROM cte_purposes srv GROUP BY srv.site ORDER BY total DESC",
+      "executions": 23733,
+      "total_duration_ms": 1181208806.36,
+      "avg_duration_ms": 49770.73,
+      "total_cpu_ms": 118390010.0,
+      "avg_cpu_ms": 4988.41,
+      "total_logical_reads": 5911765.0,
+      "max_duration_ms": 319534.82
+    },
+    {
+      "plan_id": "54",
+      "query_snippet": "Plan 54",
+      "executions": 23294,
+      "total_duration_ms": 1171852000.28,
+      "avg_duration_ms": 50307.03,
+      "total_cpu_ms": 117259160.0,
+      "avg_cpu_ms": 5033.88,
+      "total_logical_reads": 5848047.0,
+      "max_duration_ms": 203862.53
+    },
+    {
+      "plan_id": "64",
+      "query_snippet": "Plan 64",
+      "executions": 23215,
+      "total_duration_ms": 1162455909.27,
+      "avg_duration_ms": 50073.48,
+      "total_cpu_ms": 115978358.0,
+      "avg_cpu_ms": 4995.84,
+      "total_logical_reads": 5799698.0,
+      "max_duration_ms": 207630.36
+    },
+    {
+      "plan_id": "7",
+      "query_snippet": "SELECT query_server, usage, query_disk INTO #begin FROM @offers WHERE Status = 'Active'",
+      "executions": 23180,
+      "total_duration_ms": 1157870114.65,
+      "avg_duration_ms": 49951.26,
+      "total_cpu_ms": 115845405.0,
+      "avg_cpu_ms": 4997.64,
+      "total_logical_reads": 5785639.0,
+      "max_duration_ms": 254534.33
+    },
+    {
+      "plan_id": "81",
+      "query_snippet": "Plan 81",
+      "executions": 23102,
+      "total_duration_ms": 1159400994.9,
+      "avg_duration_ms": 50186.17,
+      "total_cpu_ms": 115545480.0,
+      "avg_cpu_ms": 5001.54,
+      "total_logical_reads": 5760128.0,
+      "max_duration_ms": 215880.78
+    },
+    {
+      "plan_id": "34",
+      "query_snippet": "INSERT INTO Pms (Name, Value, CreatedDate) VALUES (@p0, @p1, GETDATE())",
+      "executions": 22956,
+      "total_duration_ms": 1150925602.36,
+      "avg_duration_ms": 50136.16,
+      "total_cpu_ms": 115332985.0,
+      "avg_cpu_ms": 5024.09,
+      "total_logical_reads": 5734270.0,
+      "max_duration_ms": 222490.75
+    },
+    {
+      "plan_id": "111",
+      "query_snippet": "Plan 111",
+      "executions": 22876,
+      "total_duration_ms": 1140389022.67,
+      "avg_duration_ms": 49850.89,
+      "total_cpu_ms": 114028892.0,
+      "avg_cpu_ms": 4984.65,
+      "total_logical_reads": 5683661.0,
+      "max_duration_ms": 205514.05
+    },
+    {
+      "plan_id": "74",
+      "query_snippet": "Plan 74",
+      "executions": 22869,
+      "total_duration_ms": 1140383712.9,
+      "avg_duration_ms": 49865.92,
+      "total_cpu_ms": 113903376.0,
+      "avg_cpu_ms": 4980.69,
+      "total_logical_reads": 5676423.0,
+      "max_duration_ms": 209105.42
+    },
+    {
+      "plan_id": "37",
+      "query_snippet": "DELETE FROM dbo.ShowTemp WHERE CreatedDate < DATEADD(m, -3, GETDATE())",
+      "executions": 22842,
+      "total_duration_ms": 1140010620.54,
+      "avg_duration_ms": 49908.53,
+      "total_cpu_ms": 114176694.0,
+      "avg_cpu_ms": 4998.54,
+      "total_logical_reads": 5722428.0,
+      "max_duration_ms": 235870.69
+    },
+    {
+      "plan_id": "73",
+      "query_snippet": "Plan 73",
+      "executions": 22426,
+      "total_duration_ms": 1121910476.5,
+      "avg_duration_ms": 50027.22,
+      "total_cpu_ms": 111918744.0,
+      "avg_cpu_ms": 4990.58,
+      "total_logical_reads": 5586881.0,
+      "max_duration_ms": 207824.02
+    },
+    {
+      "plan_id": "77",
+      "query_snippet": "Plan 77",
+      "executions": 22231,
+      "total_duration_ms": 1106025484.87,
+      "avg_duration_ms": 49751.49,
+      "total_cpu_ms": 110656814.0,
+      "avg_cpu_ms": 4977.59,
+      "total_logical_reads": 5526792.0,
+      "max_duration_ms": 197947.82
+    },
+    {
+      "plan_id": "25",
+      "query_snippet": "SELECT * FROM Saves WHERE Id = 982738",
+      "executions": 22073,
+      "total_duration_ms": 1111176928.79,
+      "avg_duration_ms": 50341.0,
+      "total_cpu_ms": 110918769.0,
+      "avg_cpu_ms": 5025.09,
+      "total_logical_reads": 5525167.0,
+      "max_duration_ms": 206305.77
+    },
+    {
+      "plan_id": "109",
+      "query_snippet": "Plan 109",
+      "executions": 21926,
+      "total_duration_ms": 1096415667.68,
+      "avg_duration_ms": 50005.28,
+      "total_cpu_ms": 109492749.0,
+      "avg_cpu_ms": 4993.74,
+      "total_logical_reads": 5484124.0,
+      "max_duration_ms": 196181.79
+    },
+    {
+      "plan_id": "63",
+      "query_snippet": "Plan 63",
+      "executions": 21657,
+      "total_duration_ms": 1077969348.68,
+      "avg_duration_ms": 49774.64,
+      "total_cpu_ms": 108217175.0,
+      "avg_cpu_ms": 4996.87,
+      "total_logical_reads": 5391520.0,
+      "max_duration_ms": 220626.59
+    },
+    {
+      "plan_id": "12",
+      "query_snippet": "SELECT * FROM Agreements ORDER BY CreatedDate DESC",
+      "executions": 21647,
+      "total_duration_ms": 1083266249.08,
+      "avg_duration_ms": 50042.33,
+      "total_cpu_ms": 108830706.0,
+      "avg_cpu_ms": 5027.52,
+      "total_logical_reads": 5425612.0,
+      "max_duration_ms": 195953.31
+    },
+    {
+      "plan_id": "90",
+      "query_snippet": "Plan 90",
+      "executions": 21178,
+      "total_duration_ms": 1056241293.01,
+      "avg_duration_ms": 49874.46,
+      "total_cpu_ms": 105716512.0,
+      "avg_cpu_ms": 4991.81,
+      "total_logical_reads": 5260832.0,
+      "max_duration_ms": 228766.66
+    },
+    {
+      "plan_id": "82",
+      "query_snippet": "Plan 82",
+      "executions": 21035,
+      "total_duration_ms": 1053025935.08,
+      "avg_duration_ms": 50060.66,
+      "total_cpu_ms": 105425241.0,
+      "avg_cpu_ms": 5011.9,
+      "total_logical_reads": 5228304.0,
+      "max_duration_ms": 273495.13
+    },
+    {
+      "plan_id": "48",
+      "query_snippet": "SELECT query_server, usage, query_disk INTO #figure FROM @springs WHERE usage = 'Data'",
+      "executions": 20996,
+      "total_duration_ms": 1047303144.58,
+      "avg_duration_ms": 49881.08,
+      "total_cpu_ms": 104568664.0,
+      "avg_cpu_ms": 4980.41,
+      "total_logical_reads": 5219490.0,
+      "max_duration_ms": 204782.46
+    },
+    {
+      "plan_id": "114",
+      "query_snippet": "Plan 114",
+      "executions": 20924,
+      "total_duration_ms": 1043993477.87,
+      "avg_duration_ms": 49894.55,
+      "total_cpu_ms": 104161657.0,
+      "avg_cpu_ms": 4978.09,
+      "total_logical_reads": 5222661.0,
+      "max_duration_ms": 214517.02
+    }
+  ],
+  "wait_statistics": {
+    "by_category": [
+      {
+        "category": "Lock",
+        "total_wait_time_ms": 6054928.269314498,
+        "avg_wait_time_ms": 5755.635236990967,
+        "sample_count": 1052
+      },
+      {
+        "category": "Buffer IO",
+        "total_wait_time_ms": 6015166.316881871,
+        "avg_wait_time_ms": 5696.180224319954,
+        "sample_count": 1056
+      },
+      {
+        "category": "Network IO",
+        "total_wait_time_ms": 5988392.396508485,
+        "avg_wait_time_ms": 5763.6115462064345,
+        "sample_count": 1039
+      },
+      {
+        "category": "Memory",
+        "total_wait_time_ms": 5974596.3025010675,
+        "avg_wait_time_ms": 5695.516017636862,
+        "sample_count": 1049
+      },
+      {
+        "category": "Parallelism",
+        "total_wait_time_ms": 5848599.944168469,
+        "avg_wait_time_ms": 5733.921513890656,
+        "sample_count": 1020
+      },
+      {
+        "category": "CPU",
+        "total_wait_time_ms": 5774354.546588043,
+        "avg_wait_time_ms": 5672.25397503737,
+        "sample_count": 1018
+      },
+      {
+        "category": "Preemptive",
+        "total_wait_time_ms": 5744200.123273521,
+        "avg_wait_time_ms": 5626.0530100622145,
+        "sample_count": 1021
+      },
+      {
+        "category": "Latch",
+        "total_wait_time_ms": 5689252.489576145,
+        "avg_wait_time_ms": 5528.9139840390135,
+        "sample_count": 1029
+      },
+      {
+        "category": "Idle",
+        "total_wait_time_ms": 5522986.242406589,
+        "avg_wait_time_ms": 5682.0846115294125,
+        "sample_count": 972
+      }
+    ]
+  },
+  "error_log_summary": {
+    "total_entries": 254,
+    "error_count": 103,
+    "warning_count": 1,
+    "policy_violation_count": 96,
+    "top_messages": [
+      {
+        "message": "Error: 34052<c/> Severity: 16<c/> State: 1.",
+        "count": 96
+      },
+      {
+        "message": "Certificaatscript Module dbatools geinstalleerd Module SqlServer geinstalleerd Nieuwste certificaat ",
+        "count": 48
+      },
+      {
+        "message": "Policy 'COMPANY SQL - Password Expiration' has been violated.",
+        "count": 24
+      },
+      {
+        "message": "Policy 'COMPANY SQL - Password Policy' has been violated.",
+        "count": 24
+      },
+      {
+        "message": "Policy 'COMPANY SQL - SQL login moet policy checked zijn' has been violated.",
+        "count": 24
+      },
+      {
+        "message": "Policy 'COMPANY SQL - Windows Authentication' has been violated.",
+        "count": 24
+      },
+      {
+        "message": "Error: 825<c/> Severity: 10<c/> State: 2.",
+        "count": 2
+      },
+      {
+        "message": "Error: 1205<c/> Severity: 13<c/> State: 51.",
+        "count": 2
+      },
+      {
+        "message": "Error: 18456<c/> Severity: 14<c/> State: 8.",
+        "count": 2
+      },
+      {
+        "message": "Recovery is complete. This is an informational message only. No user action is required.",
+        "count": 2
+      }
+    ],
+    "severity_distribution": {
+      "Unknown": 254
+    },
+    "recent_errors": [
+      {
+        "date": "11/08/2025 07:57:32",
+        "source": "spid113",
+        "message": "Error: 34052<c/> Severity: 16<c/> State: 1."
+      },
+      {
+        "date": "11/08/2025 07:27:32",
+        "source": "spid77",
+        "message": "Error: 34052<c/> Severity: 16<c/> State: 1."
+      },
+      {
+        "date": "11/08/2025 06:57:32",
+        "source": "spid90",
+        "message": "Error: 34052<c/> Severity: 16<c/> State: 1."
+      },
+      {
+        "date": "11/08/2025 06:27:32",
+        "source": "spid122",
+        "message": "Error: 34052<c/> Severity: 16<c/> State: 1."
+      },
+      {
+        "date": "11/08/2025 05:57:32",
+        "source": "spid77",
+        "message": "Error: 34052<c/> Severity: 16<c/> State: 1."
+      },
+      {
+        "date": "11/08/2025 05:27:32",
+        "source": "spid58",
+        "message": "Error: 34052<c/> Severity: 16<c/> State: 1."
+      },
+      {
+        "date": "11/08/2025 04:57:32",
+        "source": "spid84",
+        "message": "Error: 34052<c/> Severity: 16<c/> State: 1."
+      },
+      {
+        "date": "11/08/2025 04:27:32",
+        "source": "spid101",
+        "message": "Error: 34052<c/> Severity: 16<c/> State: 1."
+      },
+      {
+        "date": "11/08/2025 03:57:32",
+        "source": "spid90",
+        "message": "Error: 34052<c/> Severity: 16<c/> State: 1."
+      },
+      {
+        "date": "11/08/2025 03:27:32",
+        "source": "spid54",
+        "message": "Error: 34052<c/> Severity: 16<c/> State: 1."
+      }
+    ],
+    "recent_warnings": [
+      {
+        "date": "11/06/2025 21:49:12",
+        "message": "Autogrow of file 'Production_data' in database 'tempdb' was cancelled by user or timed out after 42224 milliseconds."
+      }
+    ],
+    "policy_violations_summary": {
+      "total": 96,
+      "unique_policies": 4,
+      "policies": [
+        [
+          "COMPANY SQL - Password Expiration",
+          24
+        ],
+        [
+          "COMPANY SQL - Password Policy",
+          24
+        ],
+        [
+          "COMPANY SQL - SQL login moet policy checked zijn",
+          24
+        ],
+        [
+          "COMPANY SQL - Windows Authentication",
+          24
+        ]
+      ]
+    }
+  }
+}
