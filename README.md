@@ -18,6 +18,7 @@ The demos focus on:
 | **001** | SQL Server Log Anomaly Detection & LLM | Cybersecurity | [View README](demos/001_sql_logs/README.md) |
 | **002** | Azure Cost Analysis & LLM | Cloud Operations | [View README](demos/002_azure/README.md) |
 | **003** | IAM Access Request Analysis & Validation | Identity Management | [View README](demos/003_iam_recommendation/README.md) |
+| **004** | SQL Server Query Store DMV Synthetic Data Generator | Database Performance | [View README](demos/004_sql_dmv/README.md) |
 
 ## Getting Started
 
@@ -29,7 +30,7 @@ The demos focus on:
 
 2. **Set up environment:**
    ```bash
-   make env
+   make env  # uv venv && uv sync
    source .venv/bin/activate
    ```
 
@@ -45,12 +46,3 @@ These demos use synthetic data to:
 - **Enable Learning** - Anyone can run the demos without access to production systems
 - **Demonstrate Patterns** - Controlled datasets show clear examples of the techniques
 - **Facilitate Testing** - Predictable data makes it easy to validate the AI models
-
-## Next Steps
-
-Each demo can be extended to work with real data sources:
-- Connect to actual log management systems
-- Integrate with cloud billing APIs  
-- Link to enterprise IAM platforms
-
-The synthetic examples provide the foundation for understanding the techniques before applying them to production environments.

@@ -4,11 +4,15 @@
 
 check: ## Validate primary development dependencies
 	@uv --version > /dev/null && echo "✅ uv available" || (echo "❌ Please install uv as package manager: https://docs.astral.sh/uv/" && exit 1)
-
+	@uv run pytest --version > /dev/null && echo "✅ pytest available" || (echo "❌ Please install pytest in your uv environment: uv add pytest" && exit 1)
+	@uv run ruff --version > /dev/null && echo "✅ ruff available" || (echo "❌ Please install ruff in your uv environment: uv add ruff" && exit 1)
+	@echo "✅ All primary development dependencies are installed."
+	
 test: ## Run tests and clean up generated files
-	@trap '$(MAKE) remove' EXIT; uv run -m pytest
+	@trap '$(MAKE) clean' EXIT; uv run -m pytest
 
-push: ## Push changes to remote repository
+push: ## Push changes to remote repository in this branch
+	@echo "🚀 Pushing changes to remote repository..."
 	@git push origin `git rev-parse --abbrev-ref HEAD` -f
 
 lint: ## Run linting and formatting checks
@@ -40,6 +44,7 @@ clean: ## Remove the generated files
 	@find . -name "*.json" -type f -delete
 	@find . -name "*.csv" -type f -delete
 	@find . -name "*.log" -type f -delete
+	@rm -rf synthetic_output/
 	@echo "✅ Generated files removed."
 
 end: ## Clean up environment
