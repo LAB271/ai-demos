@@ -30,7 +30,7 @@ The demos focus on:
 
 2. **Set up environment:**
    ```bash
-   make env
+   make env  # uv venv && uv sync
    source .venv/bin/activate
    ```
 
@@ -46,12 +46,3 @@ These demos use synthetic data to:
 - **Enable Learning** - Anyone can run the demos without access to production systems
 - **Demonstrate Patterns** - Controlled datasets show clear examples of the techniques
 - **Facilitate Testing** - Predictable data makes it easy to validate the AI models
-
-## Next Steps
-
-Each demo can be extended to work with real data sources:
-- Connect to actual log management systems
-- Integrate with cloud billing APIs  
-- Link to enterprise IAM platforms
-
-The synthetic examples provide the foundation for understanding the techniques before applying them to production environments.

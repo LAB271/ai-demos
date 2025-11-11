@@ -37,6 +37,17 @@ This generator creates synthetic data that mirrors the structure and statistical
 - **CSV files** - With headers for easy analysis
 - **Both formats** - Side-by-side comparison
 
+## Architecture
+
+```
+┌─────────────────────┐    ┌─────────────────────┐    ┌──────────────────┐    ┌──────────────────┐
+│  generate_          │    │  analyze_real_      │    │  parse_dmv_      │    │  LLM             │
+│  synthetic_dmv.py   │───▶│  dmv.py (optional)  │───▶│  for_llm.py      │───▶│  Interpretation  │
+│                     │    │                     │    │                  │    │                  │
+│ Generate DMV data   │    │ Analyze patterns    │    │ LLM Summary      │    │ Human Insights   │
+└─────────────────────┘    └─────────────────────┘    └──────────────────┘    └──────────────────┘
+```
+
 ## Installation
 
 ### Prerequisites
@@ -170,13 +181,23 @@ The generator creates files matching SQL Server Query Store DMV structure:
 
 ```
 synthetic_output/
-├── sys.query_store_runtime_stats_interval.txt  # Time intervals
-├── sys.query_store_query_text.txt              # SQL query texts
-├── sys.query_store_query.txt                   # Query metadata
-├── sys.query_store_plan.txt                    # Execution plans
-├── sys.query_store_runtime_stats.txt           # Runtime statistics
-└── sys.query_store_wait_stats.txt              # Wait statistics
+├── sys.query_store_runtime_stats_interval.txt  # Time intervals (hourly windows)
+├── sys.query_store_query_text.txt              # SQL query texts (OLTP, OLAP, problematic)
+├── sys.query_store_query.txt                   # Query metadata (hashes, parameterization)
+├── sys.query_store_plan.txt                    # Execution plans (parallel, trivial, etc.)
+├── sys.query_store_runtime_stats.txt           # Runtime statistics (duration, CPU, I/O, memory)
+├── sys.query_store_wait_stats.txt              # Wait statistics (I/O, network, parallelism, etc.)
+└── sqlserver_log.txt                           # SQL Server error log (errors, warnings, info messages)
 ```
+
+### File Formats
+
+All DMV files are generated in **semicolon-delimited format** matching SQL Server's native export format:
+- Compatible with SQL Server import tools
+- UTF-8 with BOM encoding (matches SQL Server default)
+- Can be converted to CSV format using `--format csv` option
+
+The **ERRORLOG.csv** file is generated in UTF-16 LE encoding with comma delimiter, matching SQL Server's sp_readerrorlog output format.
 
 ## Architecture
 

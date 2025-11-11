@@ -44,6 +44,7 @@ clean: ## Remove the generated files
 	@find . -name "*.json" -type f -delete
 	@find . -name "*.csv" -type f -delete
 	@find . -name "*.log" -type f -delete
+	@rm -rf synthetic_output/
 	@echo "✅ Generated files removed."
 
 end: ## Clean up environment

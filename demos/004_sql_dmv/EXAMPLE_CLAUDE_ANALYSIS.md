@@ -26,6 +26,7 @@ The generator creates these files in CSV format:
 - `sys.query_store_wait_stats.csv` - Wait statistics
 - `sys.query_store_query.csv` - Query metadata
 - `sys.query_store_plan.csv` - Execution plans
+- `sqlserver_log.txt` - SQL Server error log
 
 ## Step 3: Example Claude Prompt for Analysis
 

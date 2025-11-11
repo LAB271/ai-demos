@@ -190,7 +190,7 @@ class SyntheticDMVGenerator(BaseGenerator):
                 runtime_stats_id = self.id_gen.next_id("runtime_stats")
 
                 # Generate execution count for this interval
-                exec_count = max(1, int(self.sampler.poisson(profile.execution_frequency)))
+                exec_count = max(1, int(self.sampler.poisson(profile.execution_frequency).item()))
 
                 # Generate performance metrics based on profile + pressure factors
                 duration_samples = self._generate_duration_samples(profile, exec_count)
